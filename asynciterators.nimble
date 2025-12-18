@@ -9,6 +9,8 @@ requires "chronos"
 
 task test, "Runs the test suite":
   withDir "tests/":
-    delEnv "NIMBLE_DIR" # use nimbledeps dir
-    exec "nimble install -d -y"
-    exec "nimble test -y"
+    # use nimbledeps dir in the tests
+    # witout this, NIMBLE_DIR will point to the parent dir
+    delEnv "NIMBLE_DIR"
+    exec "nimble setup -l"
+    exec "nimble test"

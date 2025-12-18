@@ -3,6 +3,6 @@
 Quick start:
 
 ```bash
-nimble install
+nimble setup -l
 nimble test
 ```
